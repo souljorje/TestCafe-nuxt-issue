@@ -1,0 +1,45 @@
+{
+  "name": "frontend-testing",
+  "version": "1.0.0",
+  "description": "Example app with unit and e2e tests",
+  "author": "Georgiy Bukharov",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint -f node_modules/eslint-friendly-formatter --ext .js,.vue --fix --ignore-path .eslintignore .",
+    "precommit": "npm run lint",
+    "test:unit": "jest --config tests/jest.config.js",
+    "test:e2e": "cross-env NODE_ENV=e2e testcafe chrome tests/e2e/*.test.js -e --app \"yarn run dev\" --app-init-delay 15000 -S -s tests/e2e/screenshots",
+    "test:e2e:silent": "cross-env NODE_ENV=e2e testcafe chrome tests/e2e/*.test.js -S -s tests/e2e/screenshots"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/dotenv": "^1.1.1",
+    "cross-env": "^5.2.0",
+    "dotenv": "^6.0.0",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.25",
+    "babel-eslint": "^8.2.1",
+    "babel-preset-vue-app": "^2.0.0",
+    "eslint": "^5.0.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-import-resolver-webpack": "^0.10.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.22.1",
+    "eslint-plugin-testcafe": "^0.2.1",
+    "eslint-plugin-vue": "^4.7.1",
+    "jest": "^23.6.0",
+    "jest-serializer-vue": "^2.0.2",
+    "nodemon": "^1.11.0",
+    "testcafe": "^0.22.0",
+    "testcafe-nuxt-selectors": "^1.0.6",
+    "vue-jest": "^2.6.0"
+  }
+}
